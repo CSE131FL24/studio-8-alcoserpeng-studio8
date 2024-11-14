@@ -2,7 +2,7 @@ package studio8;
 
 import java.util.Scanner;
 
-public class Quiz {
+public class Quiz  {
 
 	private Question[] questions;
 	
@@ -26,7 +26,12 @@ public class Quiz {
 	}
 	
 	public void takeQuiz() {
-		//FIXME
+		for (int i=0; i<questions.length;i++) {
+			questions[i].displayPrompt();
+			questions[i].getAnswer();
+			questions[i].checkAnswer(getUserAnswer());
+			System.out.println(questions[i].getPoints());
+		}
 	}
 	
 	public static void main(String[] args) {

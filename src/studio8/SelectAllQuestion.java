@@ -1,17 +1,13 @@
 package studio8;
 
 public class SelectAllQuestion extends MultipleChoiceQuestion {
-
 	public SelectAllQuestion(String prompt, String answer, String[] choices) {
-		//Hint: 1 point per choice
-		//FIXME
+		super(prompt,answer,choices.length,choices);
 	}
 	
 	public int checkAnswer(String givenAnswer) {
-		//FIXME Should return partial credit (if earned)!
-		return 0;
+		return getChoices().length-findMissingCorrectAnswers(givenAnswer)-findIncorrectGivenAnswers(givenAnswer);
 	}
-
 	private int findMissingCorrectAnswers(String givenAnswer) {
 		String answer = this.getAnswer();
 		//how many letters are in the correct answer but not the given answer?
